@@ -167,3 +167,42 @@ function exitPresentation() {
     document.getElementById('presentation').classList.add('hidden');
     document.getElementById('editor').classList.remove('hidden');
 }
+
+// Export slides to PowerPoint
+function exportToPowerPoint() {
+    if (sections.length === 0) {
+        alert('Please add some text and split it into slides first.');
+        return;
+    }
+
+    const pptx = new PptxGenJS();
+
+    pptx.layout = 'LAYOUT_16x9';
+    pptx.title = 'Text Presentation';
+
+    sections.forEach((section, index) => {
+        const slide = pptx.addSlide();
+
+        slide.addText(`Slide ${index + 1}`, {
+            x: 0.5,
+            y: 0.1,
+            fontSize: 12,
+            color: '999999',
+            align: 'left'
+        });
+
+        slide.addText(section, {
+            x: 0.5,
+            y: 0.5,
+            w: '90%',
+            h: '70%',
+            fontSize: 24,
+            align: 'center',
+            valign: 'middle',
+            color: '000000',
+            margin: [0.5, 0.5, 0.5, 0.5]
+        });
+    });
+
+    pptx.writeFile({ fileName: 'Presentation.pptx' });
+}

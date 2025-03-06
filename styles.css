@@ -132,3 +132,11 @@ button:hover {
     border-radius: 3px;
     font-weight: bold;
 }
+
+.export-btn {
+    background-color: #ea4335;
+}
+
+.export-btn:hover {
+    background-color: #c62828;
+}
