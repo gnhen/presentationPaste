@@ -27,10 +27,19 @@ function insertBreak() {
 function processText() {
     const text = document.getElementById('textInput').value;
 
-    // Split only by our custom slide break marker and filter empty sections
-    sections = text.split(SLIDE_BREAK)
-        .map(section => section.trim())
-        .filter(section => section.length > 0);
+    // First split by our custom slide break marker
+    const initialSplit = text.split(SLIDE_BREAK);
+
+    // Then process each chunk for empty lines
+    sections = [];
+    initialSplit.forEach(chunk => {
+        // Split each chunk by empty lines (2 or more consecutive newlines)
+        const chunkSections = chunk.split(/\n{2,}/)
+            .map(section => section.trim())
+            .filter(section => section.length > 0);
+
+        sections = [...sections, ...chunkSections];
+    });
 
     displaySections();
 

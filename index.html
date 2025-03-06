@@ -11,9 +11,10 @@
 <body>
     <div id="editor">
         <h1>Text Slide Generator</h1>
-        <p class="instructions">Paste your text below and use the "Insert Break at Cursor" button to create slides.</p>
+        <p class="instructions">Paste your text below. Slides will be created by empty lines or by using the "Insert
+            Break" button.</p>
         <textarea id="textInput"
-            placeholder="Paste your text here... Use the Insert Break button to separate slides"></textarea>
+            placeholder="Paste your text here... Slides are separated by empty lines or by using the Insert Break button"></textarea>
         <div class="button-row">
             <button onclick="insertBreak()" class="secondary-btn">Insert Break at Cursor</button>
             <button onclick="processText()">Split Text</button>
