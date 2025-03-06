@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="editor">
+        <h1>Text Slide Generator</h1>
+        <p class="instructions">Paste your text below and use the "Insert Break at Cursor" button to create slides.</p>
+        <textarea id="textInput"
+            placeholder="Paste your text here... Use the Insert Break button to separate slides"></textarea>
+        <div class="button-row">
+            <button onclick="insertBreak()" class="secondary-btn">Insert Break at Cursor</button>
+            <button onclick="processText()">Split Text</button>
+        </div>
+        <div class="sections-container">
+            <h2>Slides Preview</h2>
+            <ul id="sectionsList"></ul>
+        </div>
+        <button id="startBtn" onclick="startPresentation()">Start Presentation</button>
+    </div>
+
+    <div id="presentation" class="hidden">
+        <div id="slide"></div>
+        <div class="controls">
+            <button onclick="prevSlide()">Previous</button>
+            <span id="slideCounter">1/1</span>
+            <button onclick="nextSlide()">Next</button>
+            <button onclick="exitPresentation()" class="exit-btn">Exit</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
